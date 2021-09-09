@@ -1,0 +1,19 @@
+footer .header{
+  text-decoration: underline;
+  font-weight: lighter;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.footer-option{
+  margin: 0;
+  padding: 0;
+}
+
+.footer-option a{
+  text-decoration: none;
+}
+
+.row{
+  --bs-gutter-x: 0 !important;
+}

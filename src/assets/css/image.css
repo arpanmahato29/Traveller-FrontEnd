@@ -1,0 +1,14 @@
+.tile-card:hover {
+  background: black;
+  overflow: hidden;
+  background: 	rgb(66, 186, 150);  /* fallback colour. Make sure this is just one solid colour. */
+  color: 	rgb(66, 186, 150);  /* fallback colour. Make sure this is just one solid colour. */
+  background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), 	rgba(66, 186, 150,0.8)), url("https://bit.ly/2rlzaXi");
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(66, 186, 150,0.8)), url("https://bit.ly/2rlzaXi"); /* The least supported option. */
+}
+.tile-img:hover{
+  object-fit: cover;
+}
+
+
+

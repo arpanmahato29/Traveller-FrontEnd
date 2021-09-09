@@ -11,7 +11,7 @@ const Menu = () => {
       <div className="col-10">
         <div className="contianer">
           <div className="row py-4">
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <FaPlaneDeparture size={30} />
@@ -21,7 +21,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <IoIosBed size={30} />
@@ -31,7 +31,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <BsFillHouseFill size={30} />
@@ -41,7 +41,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <TiTicket size={30} />
@@ -51,7 +51,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <IoMdRestaurant size={30} />
@@ -61,7 +61,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-2">
+            <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
                   <CgDetailsMore size={30} />
