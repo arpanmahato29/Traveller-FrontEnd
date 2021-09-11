@@ -9,6 +9,8 @@ import './assets/css/Carousal.css';
 import './assets/css/image.css';
 import './assets/css/footer.css';
 import './assets/css/color.css';
+import './assets/css/booking_console.css'
+import Blogs from './components/blogs/Blogs';
 const App = () => {
   return (
     <>
@@ -17,6 +19,7 @@ const App = () => {
           <Route exact path='/' component={Home} />
           <Route exact path='/book_flight' component={FlightBooking} />
           <Route exact path='/book_hotel' component={HotelBooking} />
+          <Route exact path='/blogs' component={Blogs} />
         </Switch>
       </BrowserRouter>
     </>

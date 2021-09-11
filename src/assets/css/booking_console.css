@@ -1,0 +1,8 @@
+.booking-console{
+  
+  background-image: url("../images/console_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
