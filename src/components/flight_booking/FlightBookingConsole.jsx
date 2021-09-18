@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import airports from '../../assets/data/airports';
+import React, { useState } from "react";
+import airports from "../../assets/data/airports";
 
 
 
@@ -14,10 +14,15 @@ const RoundTrip = () => {
               airports.map((airport,index) =>{
                 console.log(airport)
                 return (
-                  <option key={index} value={airport.IATA_code} className="text-dark">{airport.city_name} ({airport.IATA_code})</option>
-                )
-              })
-            }
+                  <option
+                    key={index}
+                    value={airport.IATA_code}
+                    className="text-dark"
+                  >
+                    {airport.city_name} ({airport.IATA_code})
+                  </option>
+                );
+              })}
           </select>
         </div>
         <div className="col-5 ms-2">  
@@ -27,10 +32,15 @@ const RoundTrip = () => {
               airports.map((airport,index) =>{
                 console.log(airport)
                 return (
-                  <option key={index} value={airport.IATA_code} className="text-dark">{airport.city_name} ({airport.IATA_code})</option>
-                )
-              })
-            }
+                  <option
+                    key={index}
+                    value={airport.IATA_code}
+                    className="text-dark"
+                  >
+                    {airport.city_name} ({airport.IATA_code})
+                  </option>
+                );
+              })}
           </select>
         </div>
       </div>
@@ -58,11 +68,15 @@ const RoundTrip = () => {
           </div>
       </div>
       <div className="mx-1 text-center">
-        <button type="submit" class="btn btn-success btn-lg rounded-pill">Find Flights</button>
+        <a href="/flight_result">
+          <button type="submit" class="btn btn-success btn-lg rounded-pill">
+            Find Flights
+          </button>
+        </a>
       </div>
     </form>
-  )
-}
+  );
+};
 
 const OneWay = () => {
   return (
@@ -75,10 +89,15 @@ const OneWay = () => {
               airports.map((airport,index) =>{
                 console.log(airport)
                 return (
-                  <option key={index} value={airport.IATA_code} className="text-dark">{airport.city_name} ({airport.IATA_code})</option>
-                )
-              })
-            }
+                  <option
+                    key={index}
+                    value={airport.IATA_code}
+                    className="text-dark"
+                  >
+                    {airport.city_name} ({airport.IATA_code})
+                  </option>
+                );
+              })}
           </select>
         </div>
         <div className="col-5 ms-2">  
@@ -88,10 +107,15 @@ const OneWay = () => {
               airports.map((airport,index) =>{
                 console.log(airport)
                 return (
-                  <option key={index} value={airport.IATA_code} className="text-dark">{airport.city_name} ({airport.IATA_code})</option>
-                )
-              })
-            }
+                  <option
+                    key={index}
+                    value={airport.IATA_code}
+                    className="text-dark"
+                  >
+                    {airport.city_name} ({airport.IATA_code})
+                  </option>
+                );
+              })}
           </select>
         </div>
       </div>
@@ -113,56 +137,70 @@ const OneWay = () => {
         </div>
       </div>
       <div className="mx-1 text-center">
-        <button type="submit" class="btn btn-success btn-lg rounded-pill">Find Flights</button>
+        <a href="/flight_result">
+          <button type="submit" class="btn btn-success btn-lg rounded-pill">
+            Find Flights
+          </button>
+        </a>
       </div>
     </form>
-  )
-}
+  );
+};
 
 const Console = () => {
   const [tripType, setTripType] = useState("roundTrip");
 
   const onClickRoundTrip = () => {
     setTripType("roundTrip");
-  }
+  };
   const onCLickOneWay = () => {
     setTripType("oneWay");
-  }
+  };
 
-
-  return(
+  return (
     <div>
       <div className="row">
         <nav className="navbar navbar-expand-lg navbar-light bg-none text-white">
           <div className="container-fluid">
             <ul className="navbar-nav">
               <li id="round-trip-tab" className="nav-item">
-                <a className="nav-link active text-light" href="#" onClick={onClickRoundTrip}>Round Trip</a>
+                <a
+                  className="nav-link active text-light"
+                  href="#"
+                  onClick={onClickRoundTrip}
+                >
+                  Round Trip
+                </a>
               </li>
               <li id="one-way-tab" className="nav-item">
-                <a className="nav-link text-light" href="#" onClick={onCLickOneWay}>One Way</a>
+                <a
+                  className="nav-link text-light"
+                  href="#"
+                  onClick={onCLickOneWay}
+                >
+                  One Way
+                </a>
               </li>
             </ul>
           </div>
         </nav>
         <div className="p-5 pb-3 bg-white border border-success border-3 rounded">
-        {
-          tripType === "roundTrip" ?
-          <RoundTrip /> : <OneWay /> 
-        }
+          {tripType === "roundTrip" ? <RoundTrip /> : <OneWay />}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const FlightBookingConsole = () => {
-  return(
+  return (
     <div className="booking-console">
       <div className="row py-5">
         <div className="col-1"></div>
         <div className="col-10">
-          <h1 className="text-light text-center mt-5 mb-2">Find the best flight for the right price</h1>
+          <h1 className="text-light text-center mt-5 mb-2">
+            Find the best flight for the right price
+          </h1>
           <div className="row">
             <div className="col-2"></div>
             <div className="col-8">
@@ -175,6 +213,6 @@ const FlightBookingConsole = () => {
       </div>
     </div>
   );
-}
+};
 
 export default FlightBookingConsole;
