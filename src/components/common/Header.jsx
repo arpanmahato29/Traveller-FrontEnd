@@ -4,7 +4,7 @@ import {HiOutlinePencil} from 'react-icons/hi';
 import {RiHeart2Line} from 'react-icons/ri';
 import {VscBellDot} from 'react-icons/vsc';
 import {FaSignInAlt} from 'react-icons/fa';
-import {SiTripadvisor} from 'react-icons/si';
+import {GiTripleGate} from 'react-icons/gi';
 
 const currentTab = (history, path) => {
   if(history.location.pathname === path){
@@ -23,8 +23,8 @@ const Header = ({history}) => {
             <nav className="navbar navbar-expand-lg navbar-light">
               <div className="container-fluid">
                 <a className="navbar-brand text-success" href="/">
-                  <SiTripadvisor size={50} className=" me-2 mb-2"/>
-                  <h2 className="d-inline-block fw-bold">Traveller</h2>
+                  <GiTripleGate size={42} className=" me-2 mb-2 pb-2"/>
+                  <h1 className="d-inline-block fw-bold ">Traveller</h1>
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>

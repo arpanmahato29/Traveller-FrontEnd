@@ -32,7 +32,7 @@ const Menu2 = ({history}) => {
                   <Link class="nav-link" to="/vacation_rentals" style={currentTab(history,'/vacation_rentals')}>Vacation Rentals</Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/things_to_do" style={currentTab(history,'/things_to_do')}>Things To Do</Link>
+                  <Link class="nav-link" to="/things_to_do" style={currentTab(history,'/places_to_visit')}>Places To Visit</Link>
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/restaurants" style={currentTab(history,'/restaurants')}>Restaurants</Link>

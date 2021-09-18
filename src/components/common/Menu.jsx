@@ -47,7 +47,7 @@ const Menu = () => {
                   <TiTicket size={30} />
                 </div>
                 <div className="col-8">
-                  <h6 className="">Things To Do</h6>
+                  <h6 className="">Places To Visit</h6>
                 </div>
               </div>
             </div>

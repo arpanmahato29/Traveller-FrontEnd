@@ -10,7 +10,10 @@ import './assets/css/image.css';
 import './assets/css/footer.css';
 import './assets/css/color.css';
 import './assets/css/booking_console.css'
+import './assets/css/text.css'
 import Blogs from './components/blogs/Blogs';
+import Location from './components/places_to_visit/Location';
+import Destination from './components/places_to_visit/Destination';
 const App = () => {
   return (
     <>
@@ -20,6 +23,8 @@ const App = () => {
           <Route exact path='/book_flight' component={FlightBooking} />
           <Route exact path='/book_hotel' component={HotelBooking} />
           <Route exact path='/blogs' component={Blogs} />
+          <Route exact path='/places_to_visit/:type/:location' component={Location} />
+          <Route exact path='/places_to_visit/:type/:location/:destination' component={Destination} />
         </Switch>
       </BrowserRouter>
     </>

@@ -5,7 +5,6 @@ import Tile from './Tile'
 import gokarna_tile from '../../assets/images/gokarna_tile.jpg'
 import havelock_tile from '../../assets/images/havelock_tile.jpg'
 import kaup_tile from '../../assets/images/kaup_tile.jpg'
-import puri_tile from '../../assets/images/puri_tile.jpg'
 import dhanushkodi_tile from '../../assets/images/dhanushkodi_tile.jpg'
 import mandarmani_tile from '../../assets/images/mandarmani_tile.jpg'
 const BeachCarousel = () => {

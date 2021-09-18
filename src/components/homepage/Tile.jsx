@@ -8,9 +8,13 @@ const Tile = ({imageName,location,styles}) => {
     backgroundColor: 'rgba(0,0,0,0.1)',
     borderRadius: '5px'
   }
+  let cardStyle = "card text-white tile-card"
+  if(styles === undefined){
+    cardStyle = "card text-white tile-card m-4";
+  }
   return(
     <div className={styles}>
-      <div className="card text-white tile-card" >
+      <div className={cardStyle}>
         <img src={imageName} class="card-img tile-img" alt="..." style={customSytle}/>
         <div className="card-img-overlay h-100 d-flex flex-column justify-content-end">
           <h2 className="card-title tile-title" >{location}</h2>
