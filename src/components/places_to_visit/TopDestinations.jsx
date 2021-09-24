@@ -1,3 +1,4 @@
+import { logRoles } from '@testing-library/dom';
 import React from 'react'
 import Carousel from 'react-elastic-carousel';
 import Tile from '../homepage/Tile';
@@ -18,9 +19,10 @@ const TopDestinations = (props) => {
           <Carousel breakPoints={breakPoints}>
             { 
               props.location.topPlaces.map((dest,index) =>{
+                console.log(dest.images)
                 return(
                   <a href={`${link}/${index}`}>
-                    <Tile imageName={dest.src} location={dest.destination}/>
+                    <Tile imageName={dest.images[0]} location={dest.destination}/>
                   </a>
                 )
               } )

@@ -41,7 +41,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="col btn btn-outline-dark mx-1">
+            <a className="col btn btn-outline-dark mx-1" href="/places_to_visit" >
               <div className="row py-2">
                 <div className="col-4">
                   <TiTicket size={30} />
@@ -50,7 +50,7 @@ const Menu = () => {
                   <h6 className="">Places To Visit</h6>
                 </div>
               </div>
-            </div>
+            </a>
             <div className="col btn btn-outline-dark mx-1">
               <div className="row py-2">
                 <div className="col-4">
