@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import airports from "../../assets/data/airports";
 
-
-
 const RoundTrip = () => {
   return (
-    <form class="row g-3">
+    <form className="row g-3">
       <div className="row mb-3">
-        <div className="col-5 me-2">  
-          <label for="departure" className="form-label text-muted">From</label>
+        <div className="col-5 me-2">
+          <label htmlFor="departure" className="form-label text-muted">
+            From
+          </label>
           <select className="form-select py-2" id="departure">
-            {airports && 
-              airports.map((airport,index) =>{
-                console.log(airport)
+            {airports &&
+              airports.map((airport, index) => {
+                console.log(airport);
                 return (
                   <option
                     key={index}
@@ -25,12 +25,14 @@ const RoundTrip = () => {
               })}
           </select>
         </div>
-        <div className="col-5 ms-2">  
-          <label for="arrival" className="form-label text-muted">To</label>
+        <div className="col-5 ms-2">
+          <label htmlFor="arrival" className="form-label text-muted">
+            To
+          </label>
           <select className="form-select py-2" id="arrival">
-            {airports && 
-              airports.map((airport,index) =>{
-                console.log(airport)
+            {airports &&
+              airports.map((airport, index) => {
+                console.log(airport);
                 return (
                   <option
                     key={index}
@@ -46,30 +48,47 @@ const RoundTrip = () => {
       </div>
       <div className="row mb-3">
         <div className="col-3 me-1">
-          <label for="departure-date" className="form-label text-muted">Dept Date</label>
-          <input type="date" className="form-control py-2" id="departure-date" />
+          <label htmlFor="departure-date" className="form-label text-muted">
+            Dept Date
+          </label>
+          <input
+            type="date"
+            className="form-control py-2"
+            id="departure-date"
+          />
         </div>
         <div className="col-3 me-1">
-          <label for="return-date" className="form-label text-muted">Return Date</label>
+          <label htmlFor="return-date" className="form-label text-muted">
+            Return Date
+          </label>
           <input type="date" className="form-control py-2" id="return-date" />
         </div>
       </div>
       <div className="row mb-3">
-        <div class="col-3 me-1">
-            <label for="travel-class" class="form-label text-muted">Class</label>
-            <select id="travel-class" class="form-select py-2">
-              <option selected>Economy</option>
-              <option>Business</option>
-            </select>
-          </div>
-          <div className="col-3 ">
-            <label for="no-of-travellers" className="form-label text-muted">Travellers</label>
-            <input type="number" className="form-control py-2" id="number-of-traveller" min="1"/>
-          </div>
+        <div className="col-3 me-1">
+          <label htmlFor="travel-class" className="form-label text-muted">
+            Class
+          </label>
+          <select id="travel-class" className="form-select py-2">
+            <option defaultValue>Economy</option>
+            <option>Business</option>
+          </select>
+        </div>
+        <div className="col-3 ">
+          <label htmlFor="no-of-travellers" className="form-label text-muted">
+            Travellers
+          </label>
+          <input
+            type="number"
+            className="form-control py-2"
+            id="number-of-traveller"
+            min="1"
+          />
+        </div>
       </div>
       <div className="mx-1 text-center">
         <a href="/flight_result">
-          <button type="submit" class="btn btn-success btn-lg rounded-pill">
+          <button type="submit" className="btn btn-success btn-lg rounded-pill">
             Find Flights
           </button>
         </a>
@@ -80,14 +99,16 @@ const RoundTrip = () => {
 
 const OneWay = () => {
   return (
-    <form class="row g-3">
+    <form className="row g-3">
       <div className="row mb-3">
-        <div className="col-5 me-2">  
-          <label for="departure" className="form-label text-muted">From</label>
+        <div className="col-5 me-2">
+          <label htmlFor="departure" className="form-label text-muted">
+            From
+          </label>
           <select className="form-select py-2" id="departure">
-            {airports && 
-              airports.map((airport,index) =>{
-                console.log(airport)
+            {airports &&
+              airports.map((airport, index) => {
+                console.log(airport);
                 return (
                   <option
                     key={index}
@@ -100,12 +121,14 @@ const OneWay = () => {
               })}
           </select>
         </div>
-        <div className="col-5 ms-2">  
-          <label for="arrival" className="form-label text-muted">To</label>
+        <div className="col-5 ms-2">
+          <label htmlFor="arrival" className="form-label text-muted">
+            To
+          </label>
           <select className="form-select py-2" id="arrival">
-            {airports && 
-              airports.map((airport,index) =>{
-                console.log(airport)
+            {airports &&
+              airports.map((airport, index) => {
+                console.log(airport);
                 return (
                   <option
                     key={index}
@@ -121,24 +144,39 @@ const OneWay = () => {
       </div>
       <div className="row mb-3">
         <div className="col-3 me-1">
-          <label for="departure-date" className="form-label">Dept Date</label>
-          <input type="date" className="form-control py-2" id="departure-date" />
+          <label htmlFor="departure-date" className="form-label">
+            Dept Date
+          </label>
+          <input
+            type="date"
+            className="form-control py-2"
+            id="departure-date"
+          />
         </div>
-        <div class="col-3 me-1">
-            <label for="travel-class" class="form-label">Class</label>
-            <select id="travel-class" class="form-select py-2">
-              <option selected>Economy</option>
-              <option>Business</option>
-            </select>
-          </div>
-          <div className="col-3 ">
-          <label for="no-of-travellers" className="form-label">Travellers</label>
-          <input type="number" className="form-control py-2" id="number-of-traveller" min="1"/>
+        <div className="col-3 me-1">
+          <label htmlFor="travel-class" className="form-label">
+            Class
+          </label>
+          <select id="travel-class" className="form-select py-2">
+            <option defaultValue>Economy</option>
+            <option>Business</option>
+          </select>
+        </div>
+        <div className="col-3 ">
+          <label htmlFor="no-of-travellers" className="form-label">
+            Travellers
+          </label>
+          <input
+            type="number"
+            className="form-control py-2"
+            id="number-of-traveller"
+            min="1"
+          />
         </div>
       </div>
       <div className="mx-1 text-center">
         <a href="/flight_result">
-          <button type="submit" class="btn btn-success btn-lg rounded-pill">
+          <button type="submit" className="btn btn-success btn-lg rounded-pill">
             Find Flights
           </button>
         </a>
