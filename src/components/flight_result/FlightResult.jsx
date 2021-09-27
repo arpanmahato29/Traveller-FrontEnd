@@ -10,7 +10,6 @@ const FlightResult = () => {
   if(sessionStorage.getItem("flightQuery")){
     flightQuery = JSON.parse(sessionStorage.getItem("flightQuery"));
   }
-  console.log(flightQuery);
   setTimeout(() => {
     setIsLoading(false);
   },5000)
