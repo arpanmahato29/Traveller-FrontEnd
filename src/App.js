@@ -34,7 +34,7 @@ const App = () => {
           <Route exact path='/blogs' component={Blogs} />
           <Route exact path='/places_to_visit/:type/:location' component={Location} />
           <Route exact path='/places_to_visit/:type/:location/:destination' component={Destination} />
-          <Route exact path='/book_flight/search_result' component={FlightResult} />
+          <Route exact path='/book_flight/search_result/' component={FlightResult} />
           <Route exact path='/book_hotel/search_result' component={HotelResult} />
         </Switch>
       </BrowserRouter>

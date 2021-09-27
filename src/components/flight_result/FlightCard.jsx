@@ -1,37 +1,55 @@
-import react from "react";
+import React from "react";
 import {
   Row,
   Col,
   Card,
   Button,
-  Nav,
-  Navbar,
-  NavDropdown,
-  Container,
 } from "react-bootstrap";
-import { faSubway } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FaPlane} from 'react-icons/fa'
 import CardDetails from "./CardDetails";
+import airlines from "../../assets/data/airlines"
 
-const FlightCard = () => {
+const FlightCard = ({flightQuery}) => {
+  const getFlightBrand = (brandName) => {
+    if(brandName === 'Air Asia'){
+      return airlines.air_asia;
+    } else if(brandName === 'Air India'){
+      return airlines.air_india;
+    } else if(brandName === 'IndiGo'){
+      return airlines.indigo;
+    } else if(brandName === 'SpiceJet'){
+      return airlines.spicejet;
+    } else if(airlines === 'Vistara'){
+      return airlines.vistara;
+    }
+    return airlines.unknown;
+  }
+  const FlightBrand = () => {
+    return(
+      <Row>
+        <Col xs={3}>
+          <img src={getFlightBrand('')} width={30} alt=""/>
+        </Col>
+        <Col><h5 className="fw-bolder">SpiceJet</h5></Col>
+        <Row>SG-3001</Row>
+      </Row>
+    )
+  }
   return (
-    <div className="m-5">
+    <div className="m-3">
       <Card className="p-4">
         <Row>
           <Col xs={2}>
-            <Row>
-              <Row>SpiceJet</Row>
-              <Row>SG-3001</Row>
-            </Row>
+            <FlightBrand />
           </Col>
           <Col xs={4}>
             <Row>
               <Col>
                 <Row>06:35</Row>
-                <Row>New Delhi</Row>
+                <Row>Delhi</Row>
               </Col>
               <Col>
-                <FontAwesomeIcon icon={faSubway} />
+                <FaPlane className='mt-3'/>
               </Col>
               <Col>
                 <Row>10:10</Row>
@@ -41,7 +59,6 @@ const FlightCard = () => {
           </Col>
           <Col xs={1}>
             <Row>3h 35m</Row>
-            <Row>1 Stop</Row>
           </Col>
           <Col xs={5}>
             <Row>

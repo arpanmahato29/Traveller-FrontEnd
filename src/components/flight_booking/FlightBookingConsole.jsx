@@ -1,200 +1,265 @@
 import React, { useState } from "react";
 import airports from "../../assets/data/airports";
-
-const RoundTrip = () => {
-  return (
-    <form className="row g-3">
-      <div className="row mb-3">
-        <div className="col-5 me-2">
-          <label htmlFor="departure" className="form-label text-muted">
-            From
-          </label>
-          <select className="form-select py-2" id="departure">
-            {airports &&
-              airports.map((airport, index) => {
-                console.log(airport);
-                return (
-                  <option
-                    key={index}
-                    value={airport.IATA_code}
-                    className="text-dark"
-                  >
-                    {airport.city_name} ({airport.IATA_code})
-                  </option>
-                );
-              })}
-          </select>
-        </div>
-        <div className="col-5 ms-2">
-          <label htmlFor="arrival" className="form-label text-muted">
-            To
-          </label>
-          <select className="form-select py-2" id="arrival">
-            {airports &&
-              airports.map((airport, index) => {
-                console.log(airport);
-                return (
-                  <option
-                    key={index}
-                    value={airport.IATA_code}
-                    className="text-dark"
-                  >
-                    {airport.city_name} ({airport.IATA_code})
-                  </option>
-                );
-              })}
-          </select>
-        </div>
-      </div>
-      <div className="row mb-3">
-        <div className="col-3 me-1">
-          <label htmlFor="departure-date" className="form-label text-muted">
-            Dept Date
-          </label>
-          <input
-            type="date"
-            className="form-control py-2"
-            id="departure-date"
-          />
-        </div>
-        <div className="col-3 me-1">
-          <label htmlFor="return-date" className="form-label text-muted">
-            Return Date
-          </label>
-          <input type="date" className="form-control py-2" id="return-date" />
-        </div>
-      </div>
-      <div className="row mb-3">
-        <div className="col-3 me-1">
-          <label htmlFor="travel-class" className="form-label text-muted">
-            Class
-          </label>
-          <select id="travel-class" className="form-select py-2">
-            <option defaultValue>Economy</option>
-            <option>Business</option>
-          </select>
-        </div>
-        <div className="col-3 ">
-          <label htmlFor="no-of-travellers" className="form-label text-muted">
-            Travellers
-          </label>
-          <input
-            type="number"
-            className="form-control py-2"
-            id="number-of-traveller"
-            min="1"
-          />
-        </div>
-      </div>
-      <div className="mx-1 text-center">
-        <a href="/flight_result">
-          <button type="submit" className="btn btn-success btn-lg rounded-pill">
-            Find Flights
-          </button>
-        </a>
-      </div>
-    </form>
-  );
-};
-
-const OneWay = () => {
-  return (
-    <form className="row g-3">
-      <div className="row mb-3">
-        <div className="col-5 me-2">
-          <label htmlFor="departure" className="form-label text-muted">
-            From
-          </label>
-          <select className="form-select py-2" id="departure">
-            {airports &&
-              airports.map((airport, index) => {
-                console.log(airport);
-                return (
-                  <option
-                    key={index}
-                    value={airport.IATA_code}
-                    className="text-dark"
-                  >
-                    {airport.city_name} ({airport.IATA_code})
-                  </option>
-                );
-              })}
-          </select>
-        </div>
-        <div className="col-5 ms-2">
-          <label htmlFor="arrival" className="form-label text-muted">
-            To
-          </label>
-          <select className="form-select py-2" id="arrival">
-            {airports &&
-              airports.map((airport, index) => {
-                console.log(airport);
-                return (
-                  <option
-                    key={index}
-                    value={airport.IATA_code}
-                    className="text-dark"
-                  >
-                    {airport.city_name} ({airport.IATA_code})
-                  </option>
-                );
-              })}
-          </select>
-        </div>
-      </div>
-      <div className="row mb-3">
-        <div className="col-3 me-1">
-          <label htmlFor="departure-date" className="form-label">
-            Dept Date
-          </label>
-          <input
-            type="date"
-            className="form-control py-2"
-            id="departure-date"
-          />
-        </div>
-        <div className="col-3 me-1">
-          <label htmlFor="travel-class" className="form-label">
-            Class
-          </label>
-          <select id="travel-class" className="form-select py-2">
-            <option defaultValue>Economy</option>
-            <option>Business</option>
-          </select>
-        </div>
-        <div className="col-3 ">
-          <label htmlFor="no-of-travellers" className="form-label">
-            Travellers
-          </label>
-          <input
-            type="number"
-            className="form-control py-2"
-            id="number-of-traveller"
-            min="1"
-          />
-        </div>
-      </div>
-      <div className="mx-1 text-center">
-        <a href="/flight_result">
-          <button type="submit" className="btn btn-success btn-lg rounded-pill">
-            Find Flights
-          </button>
-        </a>
-      </div>
-    </form>
-  );
-};
+import {checkConstrains} from './helperMethods'
 
 const Console = () => {
   const [tripType, setTripType] = useState("roundTrip");
-
+  const [flightDetails,setFliDetails] = useState({
+    source : "IXA",
+    destination : "IXA",
+    departureDate : null,
+    returnDate : null,
+    isReturnAvailable : true,
+    travelClass : "economy",
+    noOfTravellers : 1,
+    error : false
+  })
+  console.log(flightDetails)
   const onClickRoundTrip = () => {
     setTripType("roundTrip");
+    setFliDetails({
+      source : "IXA",
+      destination : "IXA",
+      departureDate : null,
+      returnDate : null,
+      isReturnAvailable : true,
+      travelClass : "economy",
+      noOfTravellers : 1,
+      error : false
+    });
   };
   const onCLickOneWay = () => {
     setTripType("oneWay");
+    setFliDetails({
+      source : "IXA",
+      destination : "IXA",
+      departureDate : null,
+      returnDate : null,
+      isReturnAvailable : false,
+      travelClass : "economy",
+      noOfTravellers : 1,
+      error : false
+    });
   };
 
+  const handleChange = name => event => {
+    setFliDetails({ ...flightDetails, [name]: event.target.value });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const error = checkConstrains(flightDetails);
+    if(error){
+      setFliDetails({...flightDetails,error: error});
+    } 
+    else {
+      let details = {
+        source:flightDetails.source,
+        destination:flightDetails.destination,
+        departure:flightDetails.departureDate,
+        travelClass : flightDetails.travelClass,
+        noOfTravellers:flightDetails.noOfTravellers
+      }
+      if(flightDetails.isReturnAvailable){
+        details = {...details,return:flightDetails.returnDate};
+      }
+      sessionStorage.setItem("flightQuery",JSON.stringify(details));
+      window.location.href = '/book_flight/search_result';
+    }
+  }
+
+  const Source = () => {
+    return(
+      <div>
+        <label htmlFor="departure" className="form-label text-muted">
+          From    
+        </label>
+        <select className="form-select py-2" id="departure" onChange={handleChange("source")} value={flightDetails.source}>
+          {airports &&
+            airports.map((airport, index) => {
+              return (
+                <option
+                  key={index}
+                  value={airport.IATA_code}
+                  className="text-dark"
+                >
+                  {airport.city_name} ({airport.IATA_code})
+                </option>
+              );
+            })}
+        </select>
+      </div>
+    )
+  }
+  const Destination = () => {
+    return (
+      <div>
+        <label htmlFor="arrival" className="form-label text-muted">
+          To
+        </label>
+        <select className="form-select py-2" id="arrival" onChange={handleChange("destination")} value={flightDetails.destination}>
+          {airports &&
+            airports.map((airport, index) => {
+              return (
+                <option
+                  key={index}
+                  value={airport.IATA_code}
+                  className="text-dark"
+                >
+                  {airport.city_name} ({airport.IATA_code})
+                </option>
+              );
+            })}
+        </select>
+      </div>
+    )
+  }
+  const DepartureDate = () => {
+    return(
+      <div>
+        <label htmlFor="departure-date" className="form-label text-muted">
+            Dept Date
+          </label>
+          <input
+            type="date"
+            className="form-control py-2"
+            id="departure-date"
+            onChange={handleChange("departureDate")}
+            value={flightDetails.departureDate}
+          />
+      </div>
+    )
+  }
+  const ReturnDate = () => {
+    return (
+      <div>
+      <label htmlFor="return-date" className="form-label text-muted">
+            Return Date
+          </label>
+          <input 
+            type="date" 
+            className="form-control py-2" 
+            id="return-date" 
+            onChange={handleChange("returnDate")}
+            value={flightDetails.returnDate}
+          />
+    </div>
+    )
+  }
+  const TravelClass = () => {
+    return(
+      <div>
+        <label htmlFor="travel-class" className="form-label text-muted">
+          Class
+        </label>
+        <select id="travel-class" className="form-select py-2" onChange={handleChange("travelClass")} value={flightDetails.travelClass}>
+          <option defaultValue>Economy</option>
+          <option>Business</option>
+        </select>
+      </div>
+    )
+  }
+  const NumberOfTraveler = () => {
+    return(
+      <div>
+        <label htmlFor="no-of-travellers" className="form-label text-muted">
+          Travellers
+        </label>
+        <select 
+          id="number-of-traveller" 
+          className="form-select py-2" 
+          onChange={handleChange("noOfTravelles")}
+          value={flightDetails.noOfTraverlles}
+        >
+          {[...Array(10)].map((x, i) =>
+            <option key={i + 1} value={i + 1}>{i + 1}</option>
+          )}
+        </select>
+      </div>
+    )
+  }
+  const SearchFlights = () => {
+    return (
+      <button type="submit" className="btn btn-success btn-lg rounded-pill" onClick={handleSubmit}>
+        Find Flights
+      </button>
+    )
+  }
+  const ShowError = () => {
+    return(
+      <div class="alert alert-danger" role="alert">
+        {flightDetails.error}
+      </div>
+    )
+  }
+
+  const RoundTrip = () => {
+    
+    return (
+      <form className="row g-3">
+        {flightDetails.error && <ShowError />}
+        <div className="row mb-3">
+          <div className="col-5 me-2">
+            <Source />
+          </div>
+          <div className="col-5 ms-2">
+            <Destination />
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className="col-3 me-1">
+            <DepartureDate />
+          </div>
+          <div className="col-3 me-1">
+            <ReturnDate />
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className="col-3 me-1">
+            <TravelClass />
+          </div>
+          <div className="col-3 ">
+            <NumberOfTraveler />
+          </div>
+        </div>
+        <div className="mx-1 text-center">
+            <SearchFlights />
+        </div>
+      </form>
+    );
+  };
+  
+  const OneWay = () => {
+    
+    return (
+      <form className="row g-3">
+        {flightDetails.error && <ShowError />}
+        <div className="row mb-3">
+          <div className="col-5 me-2">
+            <Source />
+          </div>
+          <div className="col-5 ms-2">
+            <Destination />
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className="col-3 me-1">
+            <DepartureDate />
+          </div>
+          <div className="col-3 me-1">
+            <TravelClass />
+          </div>
+          <div className="col-3 ">
+            <NumberOfTraveler />
+          </div>
+        </div>
+        <div className="mx-1 text-center">
+          <SearchFlights />
+        </div>
+      </form>
+    );
+  };
+  
   return (
     <div>
       <div className="row">
@@ -202,22 +267,20 @@ const Console = () => {
           <div className="container-fluid">
             <ul className="navbar-nav">
               <li id="round-trip-tab" className="nav-item">
-                <a
-                  className="nav-link active text-light"
-                  href="#"
+                <button
+                  className="btn active text-light"
                   onClick={onClickRoundTrip}
                 >
                   Round Trip
-                </a>
+                </button>
               </li>
               <li id="one-way-tab" className="nav-item">
-                <a
-                  className="nav-link text-light"
-                  href="#"
+                <button
+                  className="btn text-light"
                   onClick={onCLickOneWay}
                 >
                   One Way
-                </a>
+                </button>
               </li>
             </ul>
           </div>

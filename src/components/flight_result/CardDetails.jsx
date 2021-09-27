@@ -1,19 +1,9 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { Button, Collapse, Container, Row, Col } from "react-bootstrap";
-import {
-  faBriefcase,
-  faChargingStation,
-  faChevronDown,
-  faClock,
-  faPlane,
-  faToilet,
-  faUtensils,
-  faWifi,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FaChevronDown, FaPlaneDeparture} from 'react-icons/fa'
+
 function CardDetails() {
   const [open, setOpen] = useState(false);
-
   return (
     <>
       <Button
@@ -23,31 +13,18 @@ function CardDetails() {
         variant=""
       >
         Flight Details
-        <FontAwesomeIcon icon={faChevronDown} />
+        <FaChevronDown className="ms-2"/>
       </Button>
       <Collapse in={open}>
-        <Container>
-          <Row className="p-2">
-            <Col xs={7} className="bg-success">
+        <Container className="text-white">
+          <Row className="py-2">
+            <Col xs={7} className="bg-success ps-3">
               <Row>
                 <Row className="pt-4">
-                  <div>
-                    <h5 className="text-light p-1">Flight Details</h5>
-                  </div>
                   <Row className="text-end">
                     <Col className="p-2">
                       <Row>SpiceJet, SG-3001 (Economy)</Row>
                       <Row>De Havilland DHC-8</Row>
-                    </Col>
-                    <Col className="p-2">
-                      <Row>
-                        <Col>
-                          <FontAwesomeIcon icon={faWifi} />
-                          <FontAwesomeIcon icon={faChevronDown} />
-                          <FontAwesomeIcon icon={faToilet} />
-                          <FontAwesomeIcon icon={faChargingStation} />
-                        </Col>
-                      </Row>
                     </Col>
                   </Row>
                 </Row>
@@ -67,21 +44,14 @@ function CardDetails() {
                       </Row>
                     </Col>
                     <Col className="p-2">
-                      <Row>
-                        <Col xs={2}>
-                          <FontAwesomeIcon icon={faClock} />
-                        </Col>
-                        <Col xs={10}>3h 35m</Col>
-                      </Row>
-                      <Row>
-                        <Col>
-                          <hr />
-                        </Col>
-                        <Col>
-                          <FontAwesomeIcon icon={faPlane} />
+                      <Row className="mt-4">
+                        <Col  className="text-center">
+                          <FaPlaneDeparture size={40}/>
                         </Col>
                       </Row>
-                      <Row>Via BhavyaNagar</Row>
+                      <Row>
+                        <Col  className="text-center">3h 35m</Col>
+                      </Row>
                     </Col>
                     <Col className="p-2">
                       <Row>
@@ -96,26 +66,12 @@ function CardDetails() {
                       </Row>
                     </Col>
                   </Row>
-                  <Row className="bg-secondary p-3 text-light">
-                    <Col>
-                      <Row>
-                        CheckIn Baggage:
-                        <FontAwesomeIcon icon={faBriefcase} /> 15kgs
-                      </Row>
-                    </Col>
-                    <Col>
-                      <Row>
-                        <FontAwesomeIcon icon={faUtensils} />
-                        Paid Meal
-                      </Row>
-                    </Col>
-                  </Row>
                 </Row>
               </Row>
             </Col>
-            <Col xs={5} className="bg-warning">
+            <Col xs={5} className="bg-success">
               <Row>
-                <Row className="p-4">
+                <Row className="pt-4 pb-2">
                   <div>
                     <h5 className="text-light p-1">Fare Summary</h5>
                   </div>
@@ -146,12 +102,6 @@ function CardDetails() {
                   </Row>
                   <hr />
                   <Row className="p-2">
-                    <Row>
-                      Note: Lorem ipsum dolor sit amet consectetur adipisicing
-                      elit. Assumenda nam, magni veritatis laudantium alias
-                      placeat.
-                    </Row>
-
                     <Row className="p-4">
                       <Button variant="danger">Book Now</Button>
                     </Row>
