@@ -4,7 +4,7 @@ import {checkConstrains} from './helperMethods'
 
 const Console = () => {
   const [tripType, setTripType] = useState("roundTrip");
-  const [flightDetails,setFliDetails] = useState({
+  const [flightDetails,setFlightDetails] = useState({
     source : "IXA",
     destination : "IXA",
     departureDate : null,
@@ -14,10 +14,9 @@ const Console = () => {
     noOfTravellers : 1,
     error : false
   })
-  console.log(flightDetails)
   const onClickRoundTrip = () => {
     setTripType("roundTrip");
-    setFliDetails({
+    setFlightDetails({
       source : "IXA",
       destination : "IXA",
       departureDate : null,
@@ -30,7 +29,7 @@ const Console = () => {
   };
   const onCLickOneWay = () => {
     setTripType("oneWay");
-    setFliDetails({
+    setFlightDetails({
       source : "IXA",
       destination : "IXA",
       departureDate : null,
@@ -43,14 +42,14 @@ const Console = () => {
   };
 
   const handleChange = name => event => {
-    setFliDetails({ ...flightDetails, [name]: event.target.value });
+    setFlightDetails({ ...flightDetails, [name]: event.target.value });
   };
 
   const handleSubmit = event => {
     event.preventDefault();
     const error = checkConstrains(flightDetails);
     if(error){
-      setFliDetails({...flightDetails,error: error});
+      setFlightDetails({...flightDetails,error: error});
     } 
     else {
       let details = {

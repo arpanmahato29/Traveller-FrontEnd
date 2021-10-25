@@ -28,7 +28,7 @@ const FlightCard = ({flightQuery}) => {
     return(
       <Row>
         <Col xs={3}>
-          <img src={getFlightBrand('')} width={30} alt=""/>
+          <img src={getFlightBrand('SpiceJet')} width={30} alt=""/>
         </Col>
         <Col><h5 className="fw-bolder">SpiceJet</h5></Col>
         <Row>SG-3001</Row>

@@ -1,70 +1,48 @@
-import react from "react";
+import React from "react";
 import {
   Row,
   Col,
   Card,
-  Button,
-  Nav,
-  Navbar,
-  NavDropdown,
-  Container,
 } from "react-bootstrap";
-import { faSubway } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CardDetails from "./CardDetails";
+import {FaUserShield} from "react-icons/fa";
+import {ImLocation} from "react-icons/im"
 
 const HotelCard = () => {
   return (
-    <div className="m-5">
-      <Card className="p-4">
+    <div className="mx-3 my-2">
+      <Card className="hotel-card">
         <Row>
-          <Col xs={4}>
-            <Row>
-              <Col xs={4}>
-                <img src="https://picsum.photos/50" />
+          <Col xs={3} className="p-4">
+            <img src="https://picsum.photos/50" style={{width:"100%",height:"auto"}}/>
+          </Col>
+          <Col xs={9}>
+            <Row style={{height:"100%"}}>
+              <Col xs={6} className="p-4">
+                <h3 className="fw-bolder" style={{marginBottom:"0"}}>Hotel Header</h3>
+                <h6 className="text-muted" style={{padding:"0",margin:"0"}}>
+                  <ImLocation size={12}/>Hotel location
+                </h6>
+                <h5 className="badge badge-primary text-muted">
+                  <span className="badge rounded-circle text-success">
+                    <FaUserShield size={20}/>
+                  </span>
+                  <span>CLEAN PASS</span>
+                </h5>
+                <p>Wifi</p>
               </Col>
-              <Col xs={8} className="slign-start">
-                <Row>SpiceJet</Row>
-                <Row>SG-3001</Row>
+              <Col xs={3} className="p-4">
+                <p>rating</p>
+              </Col>
+              <Col xs={3} className="bg-success text-dark bg-opacity-10 p-4 text-end">
+                <h3 style={{marginBottom:"0"}}>Rs 6750</h3>
+                <h6 style={{marginBottom:"0"}}>taxes</h6>
+                <small className="text-muted">per night</small>
+                <div class="d-grid gap-2 col-12 mx-auto pt-5">
+                  <button class="btn btn-success">Book Now</button>
+                </div>
               </Col>
             </Row>
-          </Col>
-          <Col xs={2}>
-            <Row>
-              <Col>
-                <Row>06:35</Row>
-                <Row>New Delhi</Row>
-              </Col>
-              <Col>
-                <FontAwesomeIcon icon={faSubway} />
-              </Col>
-              <Col>
-                <Row>10:10</Row>
-                <Row>Mumbai</Row>
-              </Col>
-            </Row>
-          </Col>
-          <Col xs={1}>
-            <Row>3h 35m</Row>
-            <Row>1 Stop</Row>
-          </Col>
-          <Col xs={5}>
-            <Row>
-              <Col className="text-end">
-                <h4>Rs 5,496</h4>
-              </Col>
-              <Col className="text-center">
-                <Button variant="outline-danger"> Book Now</Button>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <hr />
-
-        <Row>
-          <Col>
-            <CardDetails />
-          </Col>
+        </Col>
         </Row>
       </Card>
     </div>
