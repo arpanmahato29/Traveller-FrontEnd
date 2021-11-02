@@ -110,11 +110,15 @@ const Console = () => {
           </div>
         </div>
         <div className="mx-1 text-center">
-          <button 
-            type="submit" 
-            class="btn btn-success btn-lg rounded-pill"
-            onClick={handleSubmit}
-            >Find Hotels</button>
+          <div className="d-grid gap-2 col-4 mx-auto">
+            <button 
+              type="submit" 
+              class="btn btn-success"
+              onClick={handleSubmit}
+            >
+              Find Hotels
+            </button>
+          </div>
         </div>
       </form>
     </div>

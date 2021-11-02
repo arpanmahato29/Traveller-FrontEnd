@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, withRouter } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 import { RiHeart2Line } from "react-icons/ri";
@@ -6,6 +6,7 @@ import { VscBellDot } from "react-icons/vsc";
 import { FaSignInAlt } from "react-icons/fa";
 import { GiTripleGate } from "react-icons/gi";
 
+import air_asia from "../../assets/images/Airlines_logo/spicejet.png"
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
     return { color: "#198754" };
@@ -15,6 +16,33 @@ const currentTab = (history, path) => {
 };
 
 const Header = ({ history }) => {
+
+  const [isSignedIn, setIsSignedIn] = useState(true)
+  const SignInButton = () => {
+    return(
+      <li className="nav-item me-2 mt-2">
+        <a className="nav-link btn btn-dark text-light px-2" href="/signin">
+          <h6 className="m-auto">
+            <FaSignInAlt className="me-1" size={20} />
+            Sign in
+          </h6>
+        </a>
+      </li>
+    )
+  }
+  const User = () => {
+    return(
+      <li className="nav-item me-2">
+        <a className="nav-link px-2" href="/profile/:user">
+          <img 
+            src={air_asia} class="img-thumbnail rounded-pill p-0" 
+            alt="..." 
+            style={{width: '45px', height: '45px'}}
+          />
+        </a>
+      </li>
+    )
+  }
   return (
     <header>
       <div className="row">
@@ -49,36 +77,40 @@ const Header = ({ history }) => {
                         to="/blogs"
                         style={currentTab(history, "/blogs")}
                       >
-                        <h6 className="m-auto mb-2">
+                        <h5 className="m-auto mb-2 mt-2">
                           <HiOutlinePencil className="me-1" size={20} />
                           Blogs
-                        </h6>
+                        </h5>
                       </Link>
                     </li>
-                    <li className="nav-item me-2">
-                      <a className="nav-link" href="#">
-                        <h6 className="m-auto">
+                    <li className="nav-item me-2 mt-2">
+                      <Link 
+                      className="nav-link" 
+                      to="/:user/trips" 
+                      style={currentTab(history, "/:user/trips")}
+                      >
+                        <h5 className="m-auto">
                           <RiHeart2Line className="me-1" size={20} />
                           Trips
-                        </h6>
-                      </a>
+                        </h5>
+                      </Link>
                     </li>
-                    <li className="nav-item me-2">
-                      <a className="nav-link" href="#">
-                        <h6 className="m-auto">
+                    <li className="nav-item me-2 mt-2">
+                      <Link 
+                      className="nav-link" 
+                      to="/alerts"
+                      style={currentTab(history, "/alerts")}
+                      >
+                        <h5 className="m-auto">
                           <VscBellDot className="me-1" size={20} />
                           Alerts
-                        </h6>
-                      </a>
+                        </h5>
+                      </Link>
                     </li>
-                    <li className="nav-item me-2">
-                      <a className="nav-link btn btn-dark text-light px-2">
-                        <h6 className="m-auto">
-                          <FaSignInAlt className="me-1" size={20} />
-                          Sign in
-                        </h6>
-                      </a>
-                    </li>
+                    {
+                      isSignedIn ? <User/> : <SignInButton />
+                    }
+                    
                   </ul>
                 </div>
               </div>

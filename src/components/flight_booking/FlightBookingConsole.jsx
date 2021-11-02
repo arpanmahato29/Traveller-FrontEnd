@@ -179,9 +179,11 @@ const Console = () => {
   }
   const SearchFlights = () => {
     return (
-      <button type="submit" className="btn btn-success btn-lg rounded-pill" onClick={handleSubmit}>
-        Find Flights
-      </button>
+      <div className="d-grid gap-2 col-4 mx-auto">
+        <button type="submit" className="btn btn-success " onClick={handleSubmit}>
+          Find Flights
+        </button>
+      </div>
     )
   }
   const ShowError = () => {
