@@ -6,7 +6,9 @@ import { VscBellDot } from "react-icons/vsc";
 import { FaSignInAlt } from "react-icons/fa";
 import { GiTripleGate } from "react-icons/gi";
 
-import air_asia from "../../assets/images/Airlines_logo/spicejet.png"
+import air_asia from "../../assets/images/user/user_icon.png"
+
+import {isAuthenticated} from './helperMethods'
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
     return { color: "#198754" };
@@ -17,7 +19,6 @@ const currentTab = (history, path) => {
 
 const Header = ({ history }) => {
 
-  const [isSignedIn, setIsSignedIn] = useState(true)
   const SignInButton = () => {
     return(
       <li className="nav-item me-2 mt-2">
@@ -108,7 +109,7 @@ const Header = ({ history }) => {
                       </Link>
                     </li>
                     {
-                      isSignedIn ? <User/> : <SignInButton />
+                      isAuthenticated() ? <User/> : <SignInButton />
                     }
                     
                   </ul>

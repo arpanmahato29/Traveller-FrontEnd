@@ -11,7 +11,7 @@ const Console = () => {
     returnDate : null,
     isReturnAvailable : true,
     travelClass : "economy",
-    noOfTravellers : 1,
+    passenger : 1,
     error : false
   })
   const onClickRoundTrip = () => {
@@ -23,7 +23,7 @@ const Console = () => {
       returnDate : null,
       isReturnAvailable : true,
       travelClass : "economy",
-      noOfTravellers : 1,
+      passenger : 1,
       error : false
     });
   };
@@ -36,7 +36,7 @@ const Console = () => {
       returnDate : null,
       isReturnAvailable : false,
       travelClass : "economy",
-      noOfTravellers : 1,
+      passenger : 1,
       error : false
     });
   };
@@ -57,7 +57,7 @@ const Console = () => {
         destination:flightDetails.destination,
         departure:flightDetails.departureDate,
         travelClass : flightDetails.travelClass,
-        noOfTravellers:flightDetails.noOfTravellers
+        passenger:flightDetails.passenger
       }
       if(flightDetails.isReturnAvailable){
         details = {...details,return:flightDetails.returnDate};
@@ -167,8 +167,8 @@ const Console = () => {
         <select 
           id="number-of-traveller" 
           className="form-select py-2" 
-          onChange={handleChange("noOfTravelles")}
-          value={flightDetails.noOfTraverlles}
+          onChange={handleChange("passenger")}
+          value={flightDetails.passenger}
         >
           {[...Array(10)].map((x, i) =>
             <option key={i + 1} value={i + 1}>{i + 1}</option>

@@ -1,9 +1,12 @@
 import React,{ useState} from 'react'
 import { GrGoogle,GrFacebookOption } from "react-icons/gr";
+import {MdError} from "react-icons/md"
 
 import Header from "./Header"
 import Menu2 from "./Menu2"
 import Footer from "./Footer"
+
+import {signup, signin, authenticate} from './helperMethods'
 const Signin = () => {
   const [loginSwitch,setLoginSwitch] = useState(true);
 
@@ -15,41 +18,75 @@ const Signin = () => {
 
   const SignupContainer = () => {
     const [signupCredentials, setSignupCredentials] = useState({
-      firstname : "",
-      lastname : "",
-      email : "",
-      password : ""
+      "email":"",
+      "password":"",
+      "active":true,
+      "roles":"USER_ROLES",
+      "firstName":"",
+      "lastName":"",
+      "photoUrl":""
     });
+    const [error, setError] = useState(false);
 
     const handleChange = name => event => {
       setSignupCredentials({ ...signupCredentials, [name]: event.target.value });
     };
 
-    const handleSignup = (event) => {
+    const handleSignup = async (event) => {
       event.preventDefault();
+      let data = await signup(signupCredentials);
+      if(data.error){
+        setError(data.error);
+      } else {
+        authenticate(data,() => {
+          setError(false);
+          window.location.href = "/"
+        })
+      }
     }
 
-    const {firstname,lastname,email,password} = signupCredentials;
+    const {firstName,lastName,email,password} = signupCredentials;
+
+    const ShowError = () => {
+      return(
+        <small className="text-danger">
+          <MdError size="20" className="pb-1"/>{" " + error.msg}
+        </small>
+      )
+    }
+
     return (
       <div className="text-start">
         <h2>Join to unlock the best of Tripadvisor.</h2>
         <form className="mt-4">
-            <div class="mb-3">
-              <label for="firstname" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="firstname" onChange={handleChange("firstname")} value={firstname}/>
-            </div>
-            <div class="mb-3">
-              <label for="lastname" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="lastname" onChange={handleChange("lastname")} value={lastname}/>
-            </div>
+          <div class="mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" onChange={handleChange("firstName")} value={firstName}/>
+            {
+              error.type === 'firstName' && <ShowError />
+            }
+          </div>
+          <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" onChange={handleChange("lastName")} value={lastName}/>
+            {
+              error.type === 'lastName' && <ShowError />
+            }
+          </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" onChange={handleChange("email")} value={email}/>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            {
+              error.type === 'email' && <ShowError />
+            }
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" onChange={handleChange("password")} value={password}/>
+            {
+              error.type === 'password' && <ShowError />
+            }
           </div>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-success" type="button" onClick={handleSignup}>Join</button>
@@ -70,30 +107,55 @@ const Signin = () => {
 
   const LoginContainer = () => {
     const [loginCredentials, setLoginCredentials] = useState({
-      email : "",
+      username : "",
       password : ""
     });
+
+    const [error, setError] = useState(false);
 
     const handleChange = name => event => {
       setLoginCredentials({ ...loginCredentials, [name]: event.target.value });
     };
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
       event.preventDefault();
+      const data = await signin(loginCredentials);
+      if(data.error){
+        setError(data.error);
+      } else {
+        authenticate(data,() => {
+          setError(false);
+          window.location.href = "/"
+        })
+      }
     }
 
-    const {email, password} = loginCredentials;
+    const {username, password} = loginCredentials;
+
+    const ShowError = () => {
+      return(
+        <small className="text-danger">
+          <MdError size="20" className="pb-1"/>{" " + error.msg}
+        </small>
+      )
+    }
     return (
       <div className="text-start">
         <h2>Welcome Back Traveller.</h2>
         <form className="px-3 pt-3 pb-2 ">
           <div className="mb-3">
             <label for="email" class="form-label" style={{fontSize:"0.9rem"}}>Email</label>
-            <input type="email" class="form-control" id="email" onChange={handleChange("email")} value={email}/>
+            <input type="email" class="form-control" id="email" onChange={handleChange("username")} value={username}/>
+            { 
+              error.type === "email" && <ShowError />
+            }
           </div>
           <div class="mb-3">
             <label for="password" class="form-label" style={{fontSize:"0.9rem"}}>Password</label>
             <input type="password" class="form-control" id="password" onChange={handleChange("password")} value={password}/>
+            { 
+              error.type === "password" && <ShowError />
+            }
           </div>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-success" type="button" onClick={handleLogin}>Login</button>

@@ -1,33 +1,15 @@
-import React,{useState} from 'react'
-import { RiSettings3Fill } from "react-icons/ri";
-import profile_img from '../../assets/images/Airlines_logo/spicejet.png'
+import React from 'react'
+import { FaSignOutAlt } from "react-icons/fa";
+import profile_img from '../../assets/images/user/user_icon.png'
+
+import {signout} from '../common/helperMethods'
 
 const UserPanel = () => {
-  // const UserActivityMenu = () => {
-  //   const [activity,setActivity] = useState("activity feed");
-  //   return(
-  //     <nav className="navbar navbar-expand-lg navbar-light">
-  //         <div className="container-fluid">
-  //           <div className="collapse navbar-collapse">
-  //             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-  //               <li className="nav-item">
-  //                 <a className="nav-link" href="#">Activity feed</a>
-  //               </li>
-  //               <li className="nav-item">
-  //                 <a className="nav-link" href="#">Trips</a>
-  //               </li>
-  //               <li className="nav-item">
-  //                 <a className="nav-link" href="#">Photos</a>
-  //               </li>
-  //               <li className="nav-item">
-  //                 <a className="nav-link" href="#">Reviews</a>
-  //               </li>
-  //             </ul>
-  //           </div>
-  //         </div>
-  //       </nav>
-  //   )
-  // }
+  const handleSignOut = (event) => {
+    event.preventDefault();
+    signout();
+    window.location.href = "/";
+  }
   const UserDetails = () => {
     return(
       <div className="row">
@@ -57,7 +39,9 @@ const UserPanel = () => {
         <div className="col-2">
           <div className="row">
             <buttton className="col-8 btn border me-1">Edit Profile</buttton>
-            <buttton className="col-3 btn border"><RiSettings3Fill size={20}/></buttton> 
+            <buttton className="col-3 btn border bg-danger text-white pb-2" onClick={handleSignOut}>
+              <FaSignOutAlt size={20}/>
+            </buttton> 
           </div>
         </div>
       </div>

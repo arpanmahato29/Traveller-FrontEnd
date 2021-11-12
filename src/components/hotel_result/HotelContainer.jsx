@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import HotelCard from "./HotelCard";
+import HotelFilter from "./HotelFilter";
 
 
 const HotelContainer = () => {
@@ -19,10 +20,12 @@ const HotelContainer = () => {
     // </Container>
     <div className="row mt-3 mb-5">
       <div className="col-1"></div>
-      <div className="col-10 border">
+      <div className="col-10">
         <div className="row">
-          <div className="col-3 border">Filter Section</div>
-          <div className="col-9  border">
+          <div className="col-3">
+            <HotelFilter />
+          </div>
+          <div className="col-9 ">
           {[...Array(10)].map((x, i) =>
             <HotelCard key={i + 1}/>
           )}

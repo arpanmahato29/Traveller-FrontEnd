@@ -9,8 +9,8 @@ import {ImLocation} from "react-icons/im"
 
 const HotelCard = () => {
   return (
-    <div className="mx-3 my-2">
-      <Card className="hotel-card">
+    <div className="mx-3 mb-4">
+      <Card className="hotel-card border border-3 ">
         <Row>
           <Col xs={3} className="p-4">
             <img src="https://picsum.photos/50" style={{width:"100%",height:"auto"}}/>

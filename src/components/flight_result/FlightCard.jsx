@@ -36,8 +36,8 @@ const FlightCard = ({flightQuery}) => {
     )
   }
   return (
-    <div className="m-3">
-      <Card className="p-4">
+    <div className="mx-3 mb-3">
+      <Card className="p-4 border border-3">
         <Row>
           <Col xs={2}>
             <FlightBrand />

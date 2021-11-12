@@ -4,11 +4,19 @@ import Menu2 from "../common/Menu2";
 import FlightContainer from './FlightContainer';
 import Footer from "../common/Footer";
 import Loading from "../common/Loading";
+
+import {isAuthenticated} from '../common/helperMethods'
+import {getFlights} from '../../assets/api_calls/flights'
 const FlightResult = () => {
+  
   const [isLoading, setIsLoading] = useState(true);
+  if (!isAuthenticated()) {
+    window.location.href = "/signin";
+  }
   let flightQuery;
   if(sessionStorage.getItem("flightQuery")){
     flightQuery = JSON.parse(sessionStorage.getItem("flightQuery"));
+    getFlights(flightQuery);
   }
   setTimeout(() => {
     setIsLoading(false);
