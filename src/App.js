@@ -19,6 +19,7 @@ import "./assets/css/footer.css";
 import "./assets/css/color.css";
 import "./assets/css/booking_console.css";
 import "./assets/css/text.css";
+import "./assets/css/header.css";
 
 const App = () => {
   return (
@@ -30,7 +31,7 @@ const App = () => {
           <Route exact path='/book_hotel' component={HotelBooking} />
           <Route exact path='/blogs' component={Blogs} />
           <Route exact path='/signin' component={Signin} />
-          <Route exact path='/profile/:user' component={DashboardContainer} />
+          <Route exact path='/profile' component={DashboardContainer} />
           <Route exact path='/places_to_visit/:type/:location' component={Location} />
           <Route exact path='/places_to_visit/:type/:location/:destination' component={Destination} />
           <Route exact path='/book_flight/search_result/' component={FlightResult} />

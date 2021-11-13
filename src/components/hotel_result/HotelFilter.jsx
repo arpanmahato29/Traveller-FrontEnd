@@ -36,75 +36,61 @@ function HotelFilter() {
       </div>
       <hr />
       <div>
-        <h6 className="text-muted">Departure Time :</h6>
+        <h6 className="text-muted">Hotel Class :</h6>
         <div class="form-check">
           <input 
             class="form-check-input" 
             type="checkbox" 
-            value="early morning" 
-            id="early-morning" />
-          <label class="form-check-label" for="early-morning">
-            0:00 - 6:00 (Early Morning)
+            value="5" 
+            id="5-star" />
+          <label class="form-check-label" for="5-star">
+            5 stars
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="morning" id="morning" />
-          <label class="form-check-label" for="morning">
-            6:00 - 12:00 (Morning)
+          <input 
+            class="form-check-input" 
+            type="checkbox" 
+            value="4" 
+            id="4-star" />
+          <label class="form-check-label" for="4-star">
+            4 stars
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="mid day" id="mid-day" />
-          <label class="form-check-label" for="mid-day">
-            12:00 - 18:00 (Mid Day)
+          <input 
+            class="form-check-input" 
+            type="checkbox" 
+            value="3" 
+            id="3-star" />
+          <label class="form-check-label" for="3-star">
+            3 stars
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="night" id="night" />
-          <label class="form-check-label" for="night">
-            18:00 - 24:00 (Night)
+          <input 
+            class="form-check-input" 
+            type="checkbox" 
+            value="2" 
+            id="2-star" />
+          <label class="form-check-label" for="2-star">
+            2 stars
           </label>
         </div>
       </div>
       <hr />
       <div>
-        <h6 class="text-muted">Airlines : </h6>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            Air Asia
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            Air India
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            IndiGo
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            SpiceJet
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            Vistara
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-          <label class="form-check-label" for="flexCheckDefault">
-            Others
-          </label>
-        </div>
+        <h6 class="text-muted">Style : </h6>
+        <select class="form-select" >
+          <option value="all" selected>All</option>
+          <option value="budget">Budget</option>
+          <option value="mid-range">Mid-Range</option>
+          <option value="luxury">Luxury</option>
+          <option value="business">Business</option>
+          <option value="modern">Modern</option>
+          <option value="romantic">Romantic</option>
+          <option value="family-friendly">Family-Friendly</option>
+        </select>
       </div>
       <div style={customStyles}>
         <hr/>

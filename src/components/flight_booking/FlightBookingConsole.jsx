@@ -3,13 +3,13 @@ import airports from "../../assets/data/airports";
 import {checkConstrains} from './helperMethods'
 
 const Console = () => {
-  const [tripType, setTripType] = useState("roundTrip");
+  const [tripType, setTripType] = useState("oneWay");
   const [flightDetails,setFlightDetails] = useState({
     source : "IXA",
     destination : "IXA",
     departureDate : null,
     returnDate : null,
-    isReturnAvailable : true,
+    isReturnAvailable : false,
     travelClass : "economy",
     passenger : 1,
     error : false
@@ -267,20 +267,20 @@ const Console = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-none text-white">
           <div className="container-fluid">
             <ul className="navbar-nav">
-              <li id="round-trip-tab" className="nav-item">
-                <button
-                  className="btn active text-light"
-                  onClick={onClickRoundTrip}
-                >
-                  Round Trip
-                </button>
-              </li>
               <li id="one-way-tab" className="nav-item">
                 <button
                   className="btn text-light"
                   onClick={onCLickOneWay}
                 >
                   One Way
+                </button>
+              </li>
+              <li id="round-trip-tab" className="nav-item">
+                <button
+                  className="btn active text-light"
+                  onClick={onClickRoundTrip}
+                >
+                  Round Trip
                 </button>
               </li>
             </ul>

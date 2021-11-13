@@ -3,12 +3,11 @@ import { Link, withRouter } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 import { RiHeart2Line } from "react-icons/ri";
 import { VscBellDot } from "react-icons/vsc";
-import { FaSignInAlt } from "react-icons/fa";
-import { GiTripleGate } from "react-icons/gi";
+import { FaSignInAlt,FaHiking,FaRegUser,FaSignOutAlt } from "react-icons/fa";
 
 import air_asia from "../../assets/images/user/user_icon.png"
 
-import {isAuthenticated} from './helperMethods'
+import {isAuthenticated, signout} from './helperMethods'
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
     return { color: "#198754" };
@@ -18,6 +17,12 @@ const currentTab = (history, path) => {
 };
 
 const Header = ({ history }) => {
+
+  const handleSignOut = (event) => {
+    event.preventDefault();
+    signout();
+    window.location.href = "/";
+  }
 
   const SignInButton = () => {
     return(
@@ -34,13 +39,19 @@ const Header = ({ history }) => {
   const User = () => {
     return(
       <li className="nav-item me-2">
-        <a className="nav-link px-2" href="/profile/:user">
-          <img 
-            src={air_asia} class="img-thumbnail rounded-pill p-0" 
-            alt="..." 
-            style={{width: '45px', height: '45px'}}
-          />
-        </a>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" id="header-profile-dropdown" data-bs-toggle="dropdown">
+            <img 
+              src={air_asia} class="img-thumbnail rounded-pill p-0" 
+              alt="..." 
+              style={{width: '45px', height: '45px'}}
+            />
+          </a>
+          <ul class="dropdown-menu border border-3" aria-labelledby="header-profile-dropdown">
+            <li><a class="dropdown-item" href="/profile"><FaRegUser size={15} className="me-2"/>Profile</a></li>
+            <li><button class="dropdown-item text-danger" onClick={handleSignOut}><FaSignOutAlt size={15} className="me-2"/>Signout</button></li>
+          </ul>
+        </div>
       </li>
     )
   }
@@ -52,7 +63,7 @@ const Header = ({ history }) => {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
               <a className="navbar-brand text-success" href="/">
-                <GiTripleGate size={42} className=" me-2 mb-2 pb-2" />
+                <FaHiking size={50} className=" me-2 mb-2 pb-2" />
                 <h1 className="d-inline-block fw-bold ">Traveller</h1>
               </a>
               <button

@@ -1,0 +1,3 @@
+#header-profile-dropdown.nav-link.dropdown-toggle::after{
+  display: none;
+}

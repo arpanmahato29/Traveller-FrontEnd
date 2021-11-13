@@ -2,7 +2,7 @@ import {API} from "../../backend"
 import axios from 'axios'
 
 export const signup_call = async user => {
-  return await axios.post(
+  const data =  await axios.post(
     `${API}/signup`,
     JSON.stringify(user),
     {
@@ -14,11 +14,13 @@ export const signup_call = async user => {
   )
   .then(response => response.data)
   .catch(error => error.response.data);
+
+  console.log(data);
+  return data;
 };
 
 export const signin_call = async user => {
-  console.log(user)
-  return await axios.post(
+  const data = await axios.post(
     `${API}/signin`,
     JSON.stringify(user),
     {
@@ -29,5 +31,8 @@ export const signin_call = async user => {
       }
     }
   ).then(response => response.json())
-  .catch(error => error.response.data)
+  .catch(error => error.response.data);
+
+  console.log(data);
+  return data;
 }
