@@ -25,8 +25,7 @@ export const signin = async (loginCredentials) => {
     }
     return data;
   }
-  console.log("here")
-  return await signup_call(loginCredentials);
+  return await signin_call(loginCredentials);
 }
 
 export const signup = async (signupCredentials) => {
@@ -75,7 +74,8 @@ export const signup = async (signupCredentials) => {
 }
 
 export const authenticate = (data, next) => {
-  if(typeof window === 'undefined') {
+  console.log(data)
+  if(typeof window !== 'undefined') {
     localStorage.setItem('jwt', JSON.stringify(data));
     next();
   }
