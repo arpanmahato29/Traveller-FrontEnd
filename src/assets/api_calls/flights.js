@@ -2,20 +2,31 @@ import {API} from '../../backend'
 import axios from 'axios'
 
 export const getFlights = async (flightQuery,token) => {
-  const data = await axios.get(
+  const {source, destination,departure, travelClass,passenger} = flightQuery;
+  const query = {
+    source,
+    destination,
+    departure,
+    passenger
+  }
+  const data = await axios.post(
     `${API}/scheduledFlight/search`,
+    JSON.stringify(query),
     {
-      params: JSON.stringify(flightQuery),
       headers: {
         Accept: 'application/json',
         "Content-type": "application/json",
         Authorization:`Bearer ${token}`
       }
   }
-  ).then(response => response.data)
+  ).then(response => {
+    return {
+      data : response.data,
+      error : false
+    }
+  })
   .catch(error => error.response.data)
 
-  console.log(data);
   return data; 
 }
 

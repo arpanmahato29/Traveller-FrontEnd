@@ -35,8 +35,8 @@ const Menu2 = ({ history }) => {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    to="/book_flight"
-                    style={currentTab(history, "/book_flight")}
+                    to="/flight_search"
+                    style={currentTab(history, "/flight_search")}
                   >
                     Flights
                   </Link>

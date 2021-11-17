@@ -63,7 +63,7 @@ const Console = () => {
         details = {...details,return:flightDetails.returnDate};
       }
       sessionStorage.setItem("flightQuery",JSON.stringify(details));
-      window.location.href = '/book_flight/search_result';
+      window.location.href = '/flight_search/result';
     }
   }
 
@@ -158,25 +158,6 @@ const Console = () => {
       </div>
     )
   }
-  const NumberOfTraveler = () => {
-    return(
-      <div>
-        <label htmlFor="no-of-travellers" className="form-label text-muted">
-          Travellers
-        </label>
-        <select 
-          id="number-of-traveller" 
-          className="form-select py-2" 
-          onChange={handleChange("passenger")}
-          value={flightDetails.passenger}
-        >
-          {[...Array(10)].map((x, i) =>
-            <option key={i + 1} value={i + 1}>{i + 1}</option>
-          )}
-        </select>
-      </div>
-    )
-  }
   const SearchFlights = () => {
     return (
       <div className="d-grid gap-2 col-4 mx-auto">
@@ -219,9 +200,6 @@ const Console = () => {
           <div className="col-3 me-1">
             <TravelClass />
           </div>
-          <div className="col-3 ">
-            <NumberOfTraveler />
-          </div>
         </div>
         <div className="mx-1 text-center">
             <SearchFlights />
@@ -249,9 +227,6 @@ const Console = () => {
           </div>
           <div className="col-3 me-1">
             <TravelClass />
-          </div>
-          <div className="col-3 ">
-            <NumberOfTraveler />
           </div>
         </div>
         <div className="mx-1 text-center">
@@ -294,7 +269,7 @@ const Console = () => {
   );
 };
 
-const FlightBookingConsole = () => {
+const FlightSearchConsole = () => {
   return (
     <div className="booking-console">
       <div className="row py-5">
@@ -317,4 +292,4 @@ const FlightBookingConsole = () => {
   );
 };
 
-export default FlightBookingConsole;
+export default FlightSearchConsole;

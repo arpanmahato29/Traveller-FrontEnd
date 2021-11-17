@@ -12,7 +12,12 @@ export const signup_call = async  user => {
       }
     }
   )
-  .then(response => response.data)
+  .then(response => {
+    return {
+      data : response.data,
+      error : false
+    }
+  })
   .catch(error => error.response.data);
 
   console.log(data);
@@ -29,7 +34,12 @@ export const signin_call = async user => {
         "Content-Type": 'application/json'
       }
     }
-  ).then(response => response.data)
+  ).then(response => {
+    return {
+      data : response.data,
+      error : false
+    }
+  })
   .catch(error => console.log(error));
 
   console.log(data);

@@ -1,8 +1,8 @@
 import React from "react";
 import FlightCard from "./FlightCard";
-import FlightFilter from "./FlightFilter";
+import FlightFilter from "./FlightSearchFilter";
 
-const FlightContainer = ({flightQuery}) => {
+const FlightContainer = ({flights}) => {
   
   return(
     <div className="row mt-3 mb-5">
@@ -13,9 +13,9 @@ const FlightContainer = ({flightQuery}) => {
             <FlightFilter />
           </div>
           <div className="col-8">
-          {[...Array(10)].map((x, i) =>
-            <FlightCard key={i + 1} flightQuery={flightQuery}/>
-          )}
+          { 
+            flights.map((flight,key) => <FlightCard key={key} flight={flight} />)
+          }
           </div>
         </div>
       </div>

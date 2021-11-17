@@ -35,10 +35,16 @@ const Signin = () => {
     const handleSignup = async (event) => {
       event.preventDefault();
       let data = await signup(signupCredentials);
+      if(data === undefined) {
+        setError({
+          msg : "Connection issue",
+          type : 'connection issue'
+        })
+      }
       if(data.error){
         setError(data.error);
       } else {
-        authenticate(data,() => {
+        authenticate(data.data,() => {
           setError(false);
           window.location.href = "/"
         })

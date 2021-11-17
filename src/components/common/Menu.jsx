@@ -11,7 +11,7 @@ const Menu = () => {
       <div className="col-10">
         <div className="contianer">
           <div className="row py-4">
-            <a className="col btn btn-outline-dark mx-1" href="/book_flight">
+            <a className="col btn btn-outline-dark mx-1" href="/flight_search">
               <div className="row py-2">
                 <div className="col-4">
                   <FaPlaneDeparture size={30} />

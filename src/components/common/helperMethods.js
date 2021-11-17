@@ -99,7 +99,7 @@ export const isAuthenticated = () => {
   }
 }
 
-const validateFirstName = (firstName) => {
+export const validateFirstName = (firstName) => {
   if(firstName === null 
     || firstName === undefined
     || firstName.length === 0 ){
@@ -111,7 +111,7 @@ const validateFirstName = (firstName) => {
   return true;
 }
 
-const validateLastName = (lastName) => {
+export const validateLastName = (lastName) => {
   if(lastName.length > 0 && !containsOnlyLetters(lastName)) {
     return "Lastname cannot have number or special characters";
   }
@@ -139,4 +139,12 @@ const validatePassword = password => {
 
 const containsOnlyLetters = str => {
   return /^[a-zA-Z]+$/.test(str);
+}
+
+export const validateAge = (age) => {
+  return age > 0 && age <= 100;
+}
+
+export const validateGender = (gender) => {
+  return gender == 1 || gender == 0;
 }
