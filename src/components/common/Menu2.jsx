@@ -11,7 +11,7 @@ const currentTab = (history, path) => {
 
 const Menu2 = ({ history }) => {
   return (
-    <div className="row">
+    <div className="row noPrint">
       <div className="col-1"></div>
       <div className="col-10">
         <nav className="navbar navbar-expand-lg navbar-light">

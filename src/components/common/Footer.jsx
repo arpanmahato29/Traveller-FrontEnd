@@ -1,10 +1,8 @@
 import React from 'react'
-
-
 const Footer = () => {
   let year = new Date().getFullYear();
   return (
-    <div className="row secondary-bg"  style={{paddingTop:'40px'}}>
+    <div className="row secondary-bg noPrint"  style={{paddingTop:'40px'}}>
       <div className="col-1"></div>
       <div className="col-10">
         <footer className="container">

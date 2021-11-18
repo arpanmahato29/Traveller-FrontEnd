@@ -15,8 +15,8 @@ export const getFlightBrand = (brandName) => {
   return airlines.unknown;
 }
 
-export const getDate = (date) => {
-  date = date.split('-');
+export const  getDate = (date) => {
+  date = date.split('/');
   date = new Date(date[0],date[1]-1,date[2]).toString();
   date = date.substring(0,3) + "," + date.substring(3,date.indexOf('00:00:00'));
   return date;

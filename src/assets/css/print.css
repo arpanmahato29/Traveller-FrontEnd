@@ -1,0 +1,21 @@
+@media print {
+  .noPrint{
+    display: none;
+  }
+  .custom-col-2{
+    width: 5% !important;
+  }
+  .custom-col-8{
+    width: 90% !important;
+  }
+}
+
+.noPrint {
+  visibility: unset;
+}
+.custom-col-2{
+  width: 16.66666667%;
+}
+.custom-col-8{
+  width: 66.66666667%;
+}

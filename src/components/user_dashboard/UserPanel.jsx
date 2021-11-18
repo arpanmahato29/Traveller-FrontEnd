@@ -2,7 +2,7 @@ import React from 'react'
 import { FaSignOutAlt } from "react-icons/fa";
 import profile_img from '../../assets/images/user/user_icon.png'
 
-import {signout} from '../common/helperMethods'
+import {signout, isAuthenticated} from '../common/helperMethods'
 
 const UserPanel = () => {
   const handleSignOut = (event) => {
@@ -10,6 +10,8 @@ const UserPanel = () => {
     signout();
     window.location.href = "/";
   }
+  const authToken = isAuthenticated()
+  const {firstName, lastName, email, photoUrl} = authToken.user;
   const UserDetails = () => {
     return(
       <div className="row">
@@ -18,8 +20,8 @@ const UserPanel = () => {
         </div>
         <div className="col-8">
           <div className="title mb-4 mt-2">
-            <h3 className="p-0 m-0">Arpan Mahato</h3>
-            <p className="text-muted p-0 m-0 fs-6">arpanmahato@gmail.com</p>
+            <h3 className="p-0 m-0">{`${firstName} ${lastName}`.trim()}</h3>
+            <p className="text-muted p-0 m-0 fs-6">{email}</p>
           </div>
           <div className="row">
             <div className="col-3 contributions">

@@ -67,7 +67,7 @@ const Header = ({ history }) => {
                 <h1 className="d-inline-block fw-bold ">Traveller</h1>
               </a>
               <button
-                className="navbar-toggler"
+                className="navbar-toggler noPrint"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
@@ -78,7 +78,7 @@ const Header = ({ history }) => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div
-                className="collapse navbar-collapse justify-content-end"
+                className="collapse navbar-collapse justify-content-end noPrint"
                 id="navbarSupportedContent"
               >
                 <div className="d-flex">
