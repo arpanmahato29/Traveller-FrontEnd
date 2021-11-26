@@ -4,7 +4,7 @@ import HotelCard from "./HotelCard";
 import HotelFilter from "./HotelFilter";
 
 
-const HotelContainer = () => {
+const HotelContainer = ({hotels}) => {
   return (
     // <Container className="m-0 mw-100 p-3">
     //   <Row className="border">
@@ -26,9 +26,9 @@ const HotelContainer = () => {
             <HotelFilter />
           </div>
           <div className="col-9 ">
-          {[...Array(10)].map((x, i) =>
-            <HotelCard key={i + 1}/>
-          )}
+          { 
+            hotels.map((hotel,key) => <HotelCard key={key} hotel={hotel} />)
+          }
           </div>
         </div>
       </div>

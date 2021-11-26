@@ -4,11 +4,11 @@ import {FaRegCheckCircle} from 'react-icons/fa'
 import Header from '../common/Header'
 import Menu2 from '../common/Menu2'
 import Footer from '../common/Footer'
-import OrderDetails from './OrderDetails'
+import BookingDetails from './BookingDetails'
 
 import {isAuthenticated} from '../common/helperMethods'
 
-const OrderContainer = () => {
+const BookingContainer = () => {
   const {firstName, email} = isAuthenticated().user
   return (
     <div>
@@ -24,7 +24,7 @@ const OrderContainer = () => {
           <p>
             <small className="text-muted">A confirmation email will be sent to you at {email} with your complete order details.</small>
           </p>
-          <OrderDetails/>
+          <BookingDetails/>
         </div>
         <div className="col-2 custom-col-2"></div>
       </div>
@@ -33,4 +33,4 @@ const OrderContainer = () => {
   )
 }
 
-export default OrderContainer
+export default BookingContainer

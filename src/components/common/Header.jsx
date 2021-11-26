@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { HiOutlinePencil } from "react-icons/hi";
 import { RiHeart2Line } from "react-icons/ri";
 import { VscBellDot } from "react-icons/vsc";
-import { FaSignInAlt,FaHiking,FaRegUser,FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt,FaHiking,FaRegUser,FaSignOutAlt, FaRegCalendarCheck } from "react-icons/fa";
 
 import air_asia from "../../assets/images/user/user_icon.png"
 
@@ -90,7 +90,7 @@ const Header = ({ history }) => {
                         style={currentTab(history, "/blogs")}
                       >
                         <h5 className="m-auto mb-2 mt-2">
-                          <HiOutlinePencil className="me-1" size={20} />
+                          <HiOutlinePencil className="me-1 pb-1" size={25} />
                           Blogs
                         </h5>
                       </Link>
@@ -98,12 +98,12 @@ const Header = ({ history }) => {
                     <li className="nav-item me-2 mt-2">
                       <Link 
                       className="nav-link" 
-                      to="/:user/trips" 
-                      style={currentTab(history, "/:user/trips")}
+                      to="/bookings" 
+                      style={currentTab(history, "/bookings")}
                       >
                         <h5 className="m-auto">
-                          <RiHeart2Line className="me-1" size={20} />
-                          Trips
+                          <FaRegCalendarCheck className="me-1 pb-1" size={25} />
+                          Bookings
                         </h5>
                       </Link>
                     </li>
@@ -114,7 +114,7 @@ const Header = ({ history }) => {
                       style={currentTab(history, "/alerts")}
                       >
                         <h5 className="m-auto">
-                          <VscBellDot className="me-1" size={20} />
+                          <VscBellDot className="me-1 pb-1" size={25} />
                           Alerts
                         </h5>
                       </Link>

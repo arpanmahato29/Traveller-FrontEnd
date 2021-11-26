@@ -44,8 +44,8 @@ const Menu2 = ({ history }) => {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    to="/book_hotel"
-                    style={currentTab(history, "/book_hotel")}
+                    to="/hotel_search"
+                    style={currentTab(history, "/hotel_search")}
                   >
                     Hotels
                   </Link>
@@ -53,8 +53,8 @@ const Menu2 = ({ history }) => {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    to="/vacation_rentals"
-                    style={currentTab(history, "/vacation_rentals")}
+                    to="/rental_search"
+                    style={currentTab(history, "/rental_search")}
                   >
                     Vacation Rentals
                   </Link>

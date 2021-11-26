@@ -1,8 +1,8 @@
 import React,{ useState} from 'react'
 import {checkConstrains} from './helperMethods'
-const HotelBookingConsole = () => {
+const HotelSearchConsole = () => {
   return (
-    <div className="booking-console">
+    <div className="hotel-booking-console">
       <div className="row py-5">
         <div className="col-1"></div>
         <div className="col-10">
@@ -45,8 +45,8 @@ const Console = () => {
         checkOutDate : hotelSearch.checkOutDate,
         guests : hotelSearch.guests,
       }
-      sessionStorage.setItem("hotelSreachQuery",JSON.stringify(details));
-      window.location.href = '/book_hotel/search_result';
+      sessionStorage.setItem("hotelQuery",JSON.stringify(details));
+      window.location.href = '/hotel_search/result';
     }
   }
 
@@ -58,7 +58,7 @@ const Console = () => {
     )
   }
   return (
-    <div className="p-5 pb-3 bg-white border border-success border-3 rounded">
+    <div className="p-5 pb-3 bg-white rounded">
       <form class="row g-3">
         {hotelSearch.error && <ShowError />}
         <div className="row mb-3">
@@ -127,4 +127,4 @@ const Console = () => {
 
 
 
-export default HotelBookingConsole;
+export default HotelSearchConsole;

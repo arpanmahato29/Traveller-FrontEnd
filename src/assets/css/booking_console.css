@@ -1,5 +1,19 @@
-.booking-console{
-  background-image: url("../images/console_bg.jpg");
+.rental-booking-console{
+  background-image: url("../images/console-cover/rental-console-cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+.flight-booking-console{
+  background-image: url("../images/console-cover/flight-console-cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+.hotel-booking-console{
+  background-image: url("../images/console-cover/hotel-console-cover.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

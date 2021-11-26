@@ -2,17 +2,17 @@ import React from 'react'
 import Footer from '../common/Footer'
 import Header from '../common/Header'
 import Menu2 from '../common/Menu2'
-import HotelBookingConsole from './HotelBookingConsole'
+import HotelSearchConsole from './HotelSearchConsole'
 
-const HotelBooking = () => {
+const HotelSearch = () => {
   return (
     <div>
       <Header />
       <Menu2 />
-      <HotelBookingConsole />
+      <HotelSearchConsole />
       <Footer />
     </div>
   )
 }
 
-export default HotelBooking
+export default HotelSearch

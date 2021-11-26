@@ -148,3 +148,35 @@ export const validateAge = (age) => {
 export const validateGender = (gender) => {
   return gender == 1 || gender == 0;
 }
+
+
+export const getRatingState = (rating) => {
+  switch (rating){
+    case 0,1:
+      return "Average";
+    case 2:
+      return "Good";
+    case 3:
+      return "Very Good";
+    case 4,5:
+      return "Excellent";
+    default:
+      return 'Unrated'
+  }
+}
+
+export const getFilledStars = (rating) => {
+  let stars = [];
+  for (let i = 0; i < rating; i++){
+    stars.push('★');
+  }
+  return stars;
+}
+export const getEmptyStars = (rating) => {
+  let stars = [];
+  for (let i = 0; i < 5 - rating; i++){
+    stars.push('★');
+  }
+  return stars;
+}
+

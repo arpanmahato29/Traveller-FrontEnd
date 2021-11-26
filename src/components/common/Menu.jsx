@@ -21,7 +21,7 @@ const Menu = () => {
                 </div>
               </div>
             </a>
-            <a className="col btn btn-outline-dark mx-1" href="/book_hotel"> 
+            <a className="col btn btn-outline-dark mx-1" href="/hotel_search"> 
               <div className="row py-2">
                 <div className="col-4">
                   <IoIosBed size={30} />
@@ -31,7 +31,7 @@ const Menu = () => {
                 </div>
               </div>
             </a>
-            <div className="col btn btn-outline-dark mx-1">
+            <a className="col btn btn-outline-dark mx-1" href='/rental_search'>
               <div className="row py-2">
                 <div className="col-4">
                   <BsFillHouseFill size={30} />
@@ -40,7 +40,7 @@ const Menu = () => {
                   <h6 className="">Vacation Rentals</h6>
                 </div>
               </div>
-            </div>
+            </a>
             <a className="col btn btn-outline-dark mx-1" href="/places_to_visit" >
               <div className="row py-2">
                 <div className="col-4">

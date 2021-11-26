@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OrderSummary = () => {
+const BookingSummary = () => {
   return(
     <div className="row">
       <div className="col-6">
@@ -44,4 +44,4 @@ const OrderSummary = () => {
   )
 }
 
-export default OrderSummary
+export default BookingSummary

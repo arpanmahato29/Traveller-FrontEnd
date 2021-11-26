@@ -3,9 +3,9 @@ import {FaRupeeSign} from 'react-icons/fa'
 import {RiPrinterFill} from 'react-icons/ri'
 import FlightTicket from './FlightTicket'
 
-import OrderSummary from './OrderSummary'
+import BookingSummary from './BookingSummary'
 
-const OrderDetails = () => {
+const BookingDetails = () => {
   const handlePrint = (event) => {
     event.preventDefault();
     window.print()
@@ -31,7 +31,7 @@ const OrderDetails = () => {
           </div>
         </div>
         <div className="card-body">
-          <OrderSummary />
+          <BookingSummary />
           <hr/>
           <FlightTicket/>
         </div>
@@ -40,4 +40,4 @@ const OrderDetails = () => {
   )
 }
 
-export default OrderDetails
+export default BookingDetails

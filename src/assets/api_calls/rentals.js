@@ -1,7 +1,7 @@
 import {API} from '../../backend'
 import axios from 'axios'
 
-export const getHotels = async (hotelQuery,token) => {
+export const getRentals = async (hotelQuery,token) => {
   const {checkInDate, checkOutDate, guests, search} = hotelQuery;
   const query = {
     checkInDate,
@@ -10,7 +10,7 @@ export const getHotels = async (hotelQuery,token) => {
     search
   }
   const data = await axios.post(
-    `${API}/hotel/search`,
+    `${API}/rental/search`,
     JSON.stringify(query),
     {
       headers: {

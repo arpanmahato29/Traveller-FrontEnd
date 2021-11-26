@@ -7,7 +7,7 @@ import Loading from "../common/Loading";
 
 import {isAuthenticated} from '../common/helperMethods'
 import {getFlights} from '../../assets/api_calls/flights'
-const FlightResult = () => {
+const FlightSearchResult = () => {
   
   const [isLoading, setIsLoading] = useState(true);
   const [flights, setFlights] = useState(false);
@@ -26,6 +26,8 @@ const FlightResult = () => {
         } else {
           setFlights(data.data)
         }
+      } else {
+        window.location.href = '/flight_search'
       }
     }
     bookflight();
@@ -45,4 +47,4 @@ const FlightResult = () => {
   );
 };
 
-export default FlightResult;
+export default FlightSearchResult;

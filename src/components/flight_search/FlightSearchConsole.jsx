@@ -261,7 +261,7 @@ const Console = () => {
             </ul>
           </div>
         </nav>
-        <div className="p-5 pb-3 bg-white border border-success border-3 rounded">
+        <div className="p-5 pb-3 bg-white rounded">
           {tripType === "roundTrip" ? <RoundTrip /> : <OneWay />}
         </div>
       </div>
@@ -271,7 +271,7 @@ const Console = () => {
 
 const FlightSearchConsole = () => {
   return (
-    <div className="booking-console">
+    <div className="flight-booking-console">
       <div className="row py-5">
         <div className="col-1"></div>
         <div className="col-10">
